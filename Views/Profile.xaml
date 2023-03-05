@@ -4,14 +4,76 @@
              x:Class="WestPharma.Views.Profile"
              Shell.NavBarIsVisible="False"
              Title="Profile">
-    <VerticalStackLayout>
-        <Border StrokeShape="RoundRectangle 40" WidthRequest="150">
-            <Label Text="PROFILE" FontSize="22" />
+    <ContentPage.Resources>
+        <Style TargetType="Entry" >
+            <Setter Property="BackgroundColor" Value="MintCream" />
+        </Style>
+        <Style TargetType="Border" x:Key="BorderThikness0">
+            <Setter Property="StrokeThickness" Value="0" />
+        </Style>
+    </ContentPage.Resources>
+    
+    <VerticalStackLayout Margin="10">
+        <Border StrokeShape="RoundRectangle 40" WidthRequest="150" BackgroundColor="Beige" Style="{StaticResource BorderThikness0}" Margin="10">
+            <Label Text="PROFILE" FontSize="22" HorizontalTextAlignment="Center" TextColor="Teal" />
         </Border>
-        <Border StrokeShape="RoundRectangle 40" >
-            <Label Text="PROFILE" FontSize="22" />
+
+        <HorizontalStackLayout>
+            <Entry Text="{Binding DetailsByEmpId}" HorizontalTextAlignment="Center"/>
+            <Button Command="{Binding BtnLoadEmp}" Text="Find" CornerRadius="20" />
+        </HorizontalStackLayout>
+
+        <Border HorizontalOptions="Center" Style="{StaticResource BorderThikness0}" Margin="20">
+            <Image Source="Resources/Images/profile.png" Aspect="AspectFit" WidthRequest="100" HeightRequest="100" />
         </Border>
-        
-        
+            <Label Text="Personal Details" HorizontalTextAlignment="Center" FontSize="20" Margin="0,20,0,0"/>
+        <Border StrokeShape="RoundRectangle 30">
+            <Grid RowSpacing="5" RowDefinitions="20,20,20,20,20,20" ColumnSpacing="2" ColumnDefinitions="80,20,*" Margin="15">
+                <Label Grid.Row="0" Grid.Column="0"  Text="Name" />
+                <Label Grid.Row="1" Grid.Column="0"  Text="Phone" />
+                <Label Grid.Row="2" Grid.Column="0"  Text="Email" />
+                <Label Grid.Row="3" Grid.Column="0"  Text="PAN" />
+                <Label Grid.Row="4" Grid.Column="0"  Text="Adhaar No" />
+                <Label Grid.Row="5" Grid.Column="0"  Text="Address" />
+
+                <Label Grid.Row="0" Grid.Column="1" Text=":" />
+                <Label Grid.Row="1" Grid.Column="1" Text=":" />
+                <Label Grid.Row="2" Grid.Column="1" Text=":" />
+                <Label Grid.Row="3" Grid.Column="1" Text=":" />
+                <Label Grid.Row="4" Grid.Column="1" Text=":" />
+                <Label Grid.Row="5" Grid.Column="1" Text=":" />
+
+                <Label Grid.Row="0" Grid.Column="2" Text="{Binding Name}" />
+                <Label Grid.Row="1" Grid.Column="2" Text="{Binding Phone}" />
+                <Label Grid.Row="2" Grid.Column="2" Text="{Binding Email}" />
+                <Label Grid.Row="3" Grid.Column="2" Text="{Binding PAN}" />
+                <Label Grid.Row="4" Grid.Column="2" Text="{Binding AdhaarNo}" />
+                <Label Grid.Row="5" Grid.Column="2" Text="{Binding Address}" />
+            </Grid>
+        </Border>
+
+        <Label Text="Official Details" HorizontalTextAlignment="Center" FontSize="20" Margin="0,20,0,0"/>
+        <Border StrokeShape="RoundRectangle 30" >
+            <Grid RowSpacing="5" RowDefinitions="20,20,20,20,20,20" ColumnSpacing="2" ColumnDefinitions="80,20,*" Margin="15">
+                <Label Grid.Row="0" Grid.Column="0"  Text="Dept" />
+                <Label Grid.Row="1" Grid.Column="0"  Text="Emp Id" />
+                <Label Grid.Row="2" Grid.Column="0"  Text="Office Email" />
+                <Label Grid.Row="3" Grid.Column="0"  Text="Designation" />
+                <Label Grid.Row="4" Grid.Column="0"  Text="Reporting Manager" />
+
+                <Label Grid.Row="0" Grid.Column="1" Text=":" />
+                <Label Grid.Row="1" Grid.Column="1" Text=":" />
+                <Label Grid.Row="2" Grid.Column="1" Text=":" />
+                <Label Grid.Row="3" Grid.Column="1" Text=":" />
+                <Label Grid.Row="4" Grid.Column="1" Text=":" />
+
+                <Label Grid.Row="0" Grid.Column="2" Text="{Binding Dept}" />
+                <Label Grid.Row="1" Grid.Column="2" Text="{Binding EmpCode}" />
+                <Label Grid.Row="2" Grid.Column="2" Text="{Binding OfficeEmail}" />
+                <Label Grid.Row="3" Grid.Column="2" Text="{Binding Designation}" />
+                <Label Grid.Row="4" Grid.Column="2" Text="{Binding ReportingManager}" />
+            </Grid>
+        </Border>
+
     </VerticalStackLayout>
 </ContentPage>
