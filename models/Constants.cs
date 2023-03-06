@@ -8,7 +8,7 @@ namespace WestPharma.Models
 {
     class Constants
     {
-        public const string DatabaseFilename = "WestPharma.db3";
+        public const string DatabaseFilename = "westpharma.db3";
 
         public const SQLite.SQLiteOpenFlags Flags =
             // open the database in read/write mode

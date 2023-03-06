@@ -44,9 +44,7 @@ namespace WestPharma.Models
             await Init();
             try
             {
-
-                await Database.CreateTableAsync<Employee>();
-                Thread.Sleep(10000);
+                var re = await Database.CreateTableAsync<Employee>();
             }
             catch (Exception ex)
             {
