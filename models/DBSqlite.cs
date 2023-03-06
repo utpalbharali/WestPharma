@@ -11,7 +11,7 @@ namespace WestPharma.Models
     {
         private DBSqlite()
         {
-            
+            CreateAllTables();
         }
 
         static DBSqlite sql = null;
@@ -31,7 +31,7 @@ namespace WestPharma.Models
                 return;
 
             Database = new SQLiteAsyncConnection(Constants.DatabasePath, Constants.Flags);
-            await CreateAllTables();
+            //await CreateAllTables();
         }
 
         internal async Task CreateAllTables()
@@ -42,10 +42,21 @@ namespace WestPharma.Models
             }
             // If not then it will create each tables given otherwise it will migrate
             await Init();
-            await Database.CreateTableAsync<Employee>();
+            try
+            {
+
+                await Database.CreateTableAsync<Employee>();
+                Thread.Sleep(10000);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
             await Database.CreateTableAsync<Profile>();
             await Database.CreateTableAsync<Dept>();
             Services.AllStatics.IsSqlTablesCreated = true;
+
+
         }
 
 

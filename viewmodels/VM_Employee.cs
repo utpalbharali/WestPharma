@@ -17,13 +17,11 @@ namespace WestPharma.ViewModels
         public VM_Employee()
         {
             dBSqlite = DBSqlite.SqliteObjCheck();
-            _listOfEmployees = Employeees().Result;
+            //_listOfEmployees = Employeees().Result;
             if (_listOfEmployees.Count == 0)
             {
                 InsertEmployee();
             }
-
-            
         }
 
         private ICommand _BtnLoadEmp;
