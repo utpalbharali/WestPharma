@@ -17,11 +17,7 @@ namespace WestPharma.ViewModels
         public VM_Employee()
         {
             dBSqlite = DBSqlite.SqliteObjCheck();
-            //_listOfEmployees = Employeees().Result;
-            //if (_listOfEmployees.Count == 0)
-            //{
-            //    InsertEmployee();
-            //}
+            
         }
 
         private ICommand _BtnLoadEmp;
@@ -46,8 +42,17 @@ namespace WestPharma.ViewModels
             set { _DetailsByEmpId = value; }
         }
 
+        int count = 0;
         private async void Action_BtnLoadEmp()
         {
+            if (count == 0)
+            {
+                await InsertEmployee(); // first one record
+            }
+            _listOfEmployees = await Employeees();
+            //if (_listOfEmployees.Count == 0)
+            //{
+            //}
             LoadEmployee(DetailsByEmpId);
         }
 

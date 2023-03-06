@@ -1,10 +1,11 @@
-namespace WestPharma.Views;
+using Microsoft.Extensions.DependencyInjection;
 
+namespace WestPharma.Views;
 public partial class Profile : ContentPage
 {
-	public Profile()
-	{
-		InitializeComponent();
-		this.BindingContext = new ViewModels.VM_Employee(); 
-	}
+    public Profile(ViewModels.VM_Employee viewModel)
+    {
+        InitializeComponent();
+        this.BindingContext = viewModel;
+    }
 }

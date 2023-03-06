@@ -69,7 +69,7 @@ namespace WestPharma.Models
         public async Task<List<Employee>> GetAllEmployees()
         {
             await Init();
-
+            
             List<Employee> retrivedRresult = await Database.Table<Employee>().ToListAsync();
 
             return retrivedRresult;

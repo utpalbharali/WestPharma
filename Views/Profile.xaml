@@ -14,12 +14,15 @@
     </ContentPage.Resources>
     
     <VerticalStackLayout Margin="10">
-        <Border StrokeShape="RoundRectangle 40" WidthRequest="150" BackgroundColor="Beige" Style="{StaticResource BorderThikness0}" Margin="10">
+        <Border StrokeShape="RoundRectangle 40" WidthRequest="150" BackgroundColor="Beige" 
+                HorizontalOptions="Center"
+                Style="{StaticResource BorderThikness0}" Margin="10">
             <Label Text="PROFILE" FontSize="22" HorizontalTextAlignment="Center" TextColor="Teal" />
         </Border>
 
-        <HorizontalStackLayout>
-            <Entry Text="{Binding DetailsByEmpId}" HorizontalTextAlignment="Center"/>
+        <HorizontalStackLayout HorizontalOptions="Center">
+            <Entry Text="{Binding DetailsByEmpId}" MinimumWidthRequest="100" Placeholder="Enter 5 as EmpId"
+                   HorizontalTextAlignment="Center" />
             <Button Command="{Binding BtnLoadEmp}" Text="Find" CornerRadius="20" />
         </HorizontalStackLayout>
 
